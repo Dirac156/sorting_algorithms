@@ -26,4 +26,5 @@ void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
 void swap(int *, int *);
 void check_inner(listint_t *, listint_t *, listint_t *, listint_t **);
+size_t smallest(int *, size_t, size_t);
 #endif

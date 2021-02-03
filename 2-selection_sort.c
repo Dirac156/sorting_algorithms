@@ -2,46 +2,59 @@
 
 /**
  *selection_sort - algorithm
- *@size: the size of the array.
+ *@size: size.
  *@array: the array.
  */
 
 void selection_sort(int *array, size_t size)
 {
-unsigned int i, j;
-int min_idx, hasmoved;
+size_t switched = 0, min_idx;
 
 if (!array || size <= 1)
 return;
-
-for (i = 0; i < size - 1; i++)
+for (; switched < size; switched++)
 {
-hasmoved = 0;
-min_idx = i;
-for (j = i + 1; j < size; j++)
+min_idx = smallest(array, switched, size);
+if (min_idx != switched)
 {
-if (array[j] < array[min_idx])
-{
-hasmoved = 1;
-min_idx = j;
-swap(&array[min_idx], &array[i]);
+swap(&array[switched], &array[min_idx]);
 print_array(array, size);
 }
-}
-if (!hasmoved)
-return;
 }
 }
 
 /**
- *swap - swap two function.
- * @xp: first.
- * @yp: second.
+ * smallest - smalles element in the array
+ * @array: array
+ * @min_idx: min_idx after previous minimum
+ * @size: Size
+ * Return: min_idx of the smallest.
  */
 
-void swap(int *xp, int *yp)
+size_t smallest(int *array, size_t min_idx, size_t size)
 {
-int temp = *xp;
-*xp = *yp;
-*yp = temp;
+int smallest_idx = array[min_idx];
+size_t new_min_idx = min_idx;
+
+for (; min_idx < size; min_idx++)
+{
+if (array[min_idx] < smallest_idx)
+{
+smallest_idx = array[min_idx];
+new_min_idx = min_idx;
+}
+}
+return (new_min_idx);
+}
+
+/**
+ *swap - wap two values
+ *@prev: the arrat to sort.
+ *@next: the size of the array.
+ */
+void swap(int *prev, int *next)
+{
+int swap_numb = *prev;
+*prev = *next;
+*next = swap_numb;
 }

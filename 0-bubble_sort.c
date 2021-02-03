@@ -27,7 +27,7 @@ unsigned int i, j;
 
 if (!array || size <= 1)
 return;
-for (i = 0; i < size - 1; i++)
+for (i = 0; i < size; i++)
 {
 swapped = 0;
 for (j = 0; j < size - i - 1; j++)

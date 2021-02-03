@@ -23,7 +23,7 @@ int swap_numb = *prev;
 void bubble_sort(int *array, size_t size)
 {
 int swapped;
-size_t i, j;
+unsigned int i, j;
 
 if (!array || size <= 1)
 return;

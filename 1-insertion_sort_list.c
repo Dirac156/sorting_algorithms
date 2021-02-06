@@ -32,7 +32,9 @@ next->prev = prev;
 prev->next = next;
 }
 else
-next->prev = NULL;
+{
+next->prev = NULL, (*list) = next;
+}
 print_list(*list);
 if (current->prev)
 check_inner(current->prev, current->prev->prev, current, list);
@@ -40,13 +42,11 @@ check_inner(current->prev, current->prev->prev, current, list);
 next = current->next;
 if (inserted == 1 && next)
 {
-current = current;
-next = current->next;
+current = current, next = current->next;
 }
 else if (next)
 {
-current = next;
-next = current->next;
+current = next, next = current->next;
 }
 }
 }
